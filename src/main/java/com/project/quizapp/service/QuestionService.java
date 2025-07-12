@@ -3,6 +3,8 @@ package com.project.quizapp.service;
 import com.project.quizapp.dao.QuestionDao;
 import com.project.quizapp.models.Question;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,9 +24,9 @@ public class QuestionService
         return questionDao.findByCategory(cat);
     }
 
-    public String addQuestion(Question question)
+    public ResponseEntity<String> addQuestion(Question question)
     {
         questionDao.save(question);
-        return "Success";
+        return new ResponseEntity<>("Success", HttpStatus.CREATED);
     }
 }
