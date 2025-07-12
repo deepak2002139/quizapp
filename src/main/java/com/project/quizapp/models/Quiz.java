@@ -2,6 +2,7 @@ package com.project.quizapp.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.http.HttpStatusCode;
 
 import java.util.List;
 
@@ -16,5 +17,6 @@ public class Quiz {
     private String title;
 
     @ManyToMany
-    private List<Question> questions;
+    public List<Question> questions;
+
 }
